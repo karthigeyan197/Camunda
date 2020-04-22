@@ -9,7 +9,7 @@ import java.util.logging.Logger;
 public class WorkerDispatcher {
 
     @Value( "${bpmRestEndpoint}" )
-    private static String bpmRestEndpoint = "http://localhost:8880/engine-rest";
+    private static String bpmRestEndpoint = "http://localhost:8080/engine-rest";
 
     private final static Logger LOGGER = Logger.getLogger(WorkerDispatcher.class.getName());
 
@@ -17,8 +17,8 @@ public class WorkerDispatcher {
         startWorker("process-loan", new LoanApproverProcessLoanWorker());
         startWorker("validate-claim", new ClaimProcessValidateClaimWorker());
         startWorker("process-claim", new ClaimProcessProcessClaimWorker());
-        startWorker("assign-postpaid", new AssignPostpaidMsIsdnWorker());
-        startWorker("assign-prepaid", new AssignPrepaidMsIsdnWorker());
+        startWorker("process-postpaid", new AssignPostpaidMsIsdnWorker());
+        startWorker("process-prepaid", new AssignPrepaidMsIsdnWorker());
         LOGGER.info("Workers are ready.");
     }
 

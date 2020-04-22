@@ -19,7 +19,7 @@ public class AssignPostpaidMsIsdnWorker implements WorkerInterface {
             // Put your business logic here
             MSISDN dbobj = new MSISDN();
             // Get a process variable
-            String custId = (String) externalTask.getVariable("custId");
+            String custId = (String) externalTask.getVariable("custId").toString();
             String msisdn = (String) externalTask.getVariable("msisdn");
             String protype = (String) externalTask.getVariable("protype");
 
