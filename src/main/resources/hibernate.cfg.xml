@@ -20,6 +20,7 @@
 		<!-- Mapping With Model Class Containing Annotations -->
 		<mapping class="com.camunda.bean.Student" />
 		<mapping class="com.camunda.bean.MSISDN" />
+		<mapping class="com.camunda.bean.Process_Status" />
 		
 	</session-factory>
 </hibernate-configuration>
