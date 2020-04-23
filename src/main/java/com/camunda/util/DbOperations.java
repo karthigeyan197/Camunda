@@ -10,6 +10,7 @@ import org.hibernate.boot.registry.StandardServiceRegistryBuilder;
 import org.hibernate.cfg.Configuration;
 import org.hibernate.service.ServiceRegistry;
 
+import com.camunda.bean.Process_Status;
 import com.camunda.bean.Student;
 
 import org.apache.log4j.Logger;
@@ -62,21 +63,20 @@ public class DbOperations {
 	}
 
 	// Method 3: This Method Is Used To Update A Record In The Database Table
-	public static void updateRecord(Student studentObj) {
+	public static void updateRecord(Process_Status process_Status) {
 		Session sessionObj = getSessionFactory().openSession();
 
 		//Creating Transaction Object  
 		Transaction transObj = sessionObj.beginTransaction();
-		Student stuObj = (Student) sessionObj.load(Student.class, studentObj.getStudentId());
-		stuObj.setStudentName(studentObj.getStudentName());
-		stuObj.setStudentAge(studentObj.getStudentAge());
+		Process_Status stuObj = (Process_Status) sessionObj.load(Process_Status.class, process_Status.getCmreqid());
+		stuObj.setCmstatus(process_Status.getCmstatus());
 
 		// Transaction Is Committed To Database
 		transObj.commit();
 
 		// Closing The Session Object
 		sessionObj.close();
-		logger.info("Student Record Is Successfully Updated!= " + studentObj.toString());
+		logger.info("Student Record Is Successfully Updated!= " + process_Status.toString());
 	}
 
 	// Method 4(a): This Method Is Used To Delete A Particular Record From The Database Table
