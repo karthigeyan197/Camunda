@@ -21,6 +21,7 @@ public class WorkerDispatcher {
         startWorker("process-prepaid", new AssignPrepaidMsIsdnWorker());
         startWorker("failed-review", new FailedMsisdnReviewWorker());
         startWorker("failed-validation", new FailedPayloadValidationWorker());
+        startWorker("external-worker-postpaid", new ProcessExternalPostPaidWorker());
         LOGGER.info("Workers are ready.");
     }
 
