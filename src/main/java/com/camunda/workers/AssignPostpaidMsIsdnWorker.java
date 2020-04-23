@@ -29,7 +29,7 @@ public class AssignPostpaidMsIsdnWorker implements WorkerInterface {
             dbobj.setCustId(custId);
             dbobj.setMsisdn(msisdn);
             dbobj.setProtype(protype);
-            dbobj.setStatus("ACTIVE");
+            dbobj.setStatus("ASSIGNED");
             
             //Insert values into msisdn table
             DbOperations.createRecord(dbobj);
@@ -44,7 +44,7 @@ public class AssignPostpaidMsIsdnWorker implements WorkerInterface {
             //LOGGER.info("Failed Msisdn Review custId : '" + custId + "' , msisdn : '" + msisdn + "' and protype : '"+ protype +"...");
 
             processStatus.setCmreqid(instId);
-            processStatus.setCmstatus("Assigned");
+            processStatus.setCmstatus("Process completed");
 
             //Insert values into msisdn table
             DbOperations.updateRecord(processStatus);

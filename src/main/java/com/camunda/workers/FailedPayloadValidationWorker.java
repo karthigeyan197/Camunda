@@ -27,7 +27,7 @@ public class FailedPayloadValidationWorker implements WorkerInterface {
 
 
 			 dbobj.setCmreqid(instId);
-			 dbobj.setCmstatus("Review Process Failed");
+			 dbobj.setCmstatus("Request Validation Failed");
 
 			 //Insert values into msisdn table
 			 DbOperations.updateRecord(dbobj);

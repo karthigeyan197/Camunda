@@ -8,16 +8,17 @@ import javax.persistence.UniqueConstraint;
 
 
 @Entity
-@Table(name = "process_status", uniqueConstraints={@UniqueConstraint(columnNames={"msisdn"})})
+@Table(name = "process_status")
 public class Process_Status {
 	
 	@Column(name = "custId", length=20, nullable=false, unique=true)
 	private String custId;
 
-	@Id
+
 	@Column(name = "msisdn", length=20, nullable=false)
 	private String msisdn;
 
+	@Id
 	@Column(name="cmreqid", length=100, nullable=true)
 	private String cmreqid;
 

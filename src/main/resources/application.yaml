@@ -13,4 +13,3 @@ camunda.bpm:
   filter:
     create: All Tasks
 server.port: 8181
-com.camunda.bpmRestEndpoint: http://localhost:8080/engine-rest

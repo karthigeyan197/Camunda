@@ -9,7 +9,7 @@ import java.util.logging.Logger;
 public class WorkerDispatcher {
 
     @Value( "${bpmRestEndpoint}" )
-    private static String bpmRestEndpoint = "http://localhost:8080/engine-rest";
+    private static String bpmRestEndpoint = "http://localhost:8880/engine-rest";
 
     private final static Logger LOGGER = Logger.getLogger(WorkerDispatcher.class.getName());
 

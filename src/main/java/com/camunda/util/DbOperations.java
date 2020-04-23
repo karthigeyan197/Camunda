@@ -68,7 +68,7 @@ public class DbOperations {
 
 		//Creating Transaction Object  
 		Transaction transObj = sessionObj.beginTransaction();
-		Process_Status stuObj = (Process_Status) sessionObj.load(Process_Status.class, process_Status.getCmreqid());
+		Process_Status stuObj = (Process_Status) sessionObj.get(Process_Status.class, process_Status.getCmreqid());
 		stuObj.setCmstatus(process_Status.getCmstatus());
 
 		// Transaction Is Committed To Database
