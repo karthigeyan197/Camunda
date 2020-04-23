@@ -3,17 +3,21 @@ package com.camunda.common;
 import com.camunda.workers.*;
 import org.camunda.bpm.client.ExternalTaskClient;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.stereotype.Component;
 
 import java.util.logging.Logger;
 
+@Component
 public class WorkerDispatcher {
 
-    @Value( "${bpmRestEndpoint}" )
-    private static String bpmRestEndpoint = "http://localhost:8080/engine-rest";
+
+    private String bpmRestEndpoint;
 
     private final static Logger LOGGER = Logger.getLogger(WorkerDispatcher.class.getName());
 
-    public static void initializeWorkers() {
+    public WorkerDispatcher(@Value("${com.camunda.bpmRestEndpoint}") String bpmRestEndpoint) {
+        this.bpmRestEndpoint = bpmRestEndpoint;
+        LOGGER.info("com.camunda.bpmRestEndpoint: " + bpmRestEndpoint);
         startWorker("process-loan", new LoanApproverProcessLoanWorker());
         startWorker("validate-claim", new ClaimProcessValidateClaimWorker());
         startWorker("process-claim", new ClaimProcessProcessClaimWorker());
@@ -22,7 +26,7 @@ public class WorkerDispatcher {
         LOGGER.info("Workers are ready.");
     }
 
-    private static void startWorker(String entityName, WorkerInterface workerInterface) {
+    private void startWorker(String entityName, WorkerInterface workerInterface) {
         ExternalTaskClient client = ExternalTaskClient.create()
                 .baseUrl(bpmRestEndpoint)
                 //  .asyncResponseTimeout(10000) long polling timeout

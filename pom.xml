@@ -184,7 +184,7 @@
         <artifactId>exec-maven-plugin</artifactId>
         <version>1.6.0</version>
         <configuration>
-          <mainClass>com.camunda.test.WorkFlowRestWorker.CamundaApplication</mainClass>
+          <mainClass>com.camunda.CamundaApplication</mainClass>
         </configuration>
       </plugin>
     </plugins>
